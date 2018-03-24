@@ -5,6 +5,13 @@ Artificial intelligence
 ### _*fichier à modifier*_
 * [brain.yml](https://github.com/floflo2607/Lya/blob/master/brain.yml)
 
+### info complementaires
+* [toutes les infos](https://github.com/kalliope-project/kalliope)
+* [toutes les info sur brain](https://github.com/kalliope-project/kalliope/blob/master/Docs/brain.md)
+* [signel market](https://kalliope-project.github.io/signals_marketplace.html)
+* [neuron market](https://kalliope-project.github.io/neurons_marketplace.html)
+* [website](https://kalliope-project.github.io/)
+
 
 ### _*voici comment le modifier un module simple*_
 <pre><code>---
@@ -20,7 +27,8 @@ Artificial intelligence
            .......
 </pre></code>
 
-#brain.yml: le cerveau de Kalliopé
+
+# brain.yml: le cerveau de Kalliopé
 
 On va à présent faire un tour sur la partie la plus importante de Kalliopé: son cerveau.
 Comme expliqué plus haut, le cerveau (brain) de kalliopé est composé de synapses. Un synapse est l’association d’un signal avec une liste de neurones.
