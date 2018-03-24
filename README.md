@@ -6,6 +6,7 @@ Artificial intelligence
 * [brain.yml](https://github.com/floflo2607/Lya/blob/master/brain.yml)
 
 ### info complementaires
+* [tout plei de modules](https://bacardi55.org/kalliope.html)
 * [toutes les infos](https://github.com/kalliope-project/kalliope)
 * [toutes les info sur brain](https://github.com/kalliope-project/kalliope/blob/master/Docs/brain.md)
 * [signel market](https://kalliope-project.github.io/signals_marketplace.html)
