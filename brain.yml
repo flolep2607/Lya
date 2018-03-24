@@ -1,0 +1,89 @@
+---
+  - name: "say-pomme-fr"
+    signals:
+      - order: "qui aime les pommes"
+    neurons:
+      - say:
+         message:
+           - "quelle question. Tout le monde bien sur!"
+  - name: "say-local-date"
+    signals:
+      - order: "quelle heure est-il"
+    neurons:
+      - systemdate:
+          say_template:
+            - "il est {{ hours }} heure et {{ minutes }} minute"
+  - name: "qui-je-suis"
+    signals:
+      - order: "comment je m'appelle"
+      - order: "qui suis-je"
+    neurons:
+      - say:
+          message:
+            - "Vous êtes {{name}}"
+  - name: "say-hello-fr"
+    signals:
+      - order: "Bonjour"
+    neurons:
+      - say:
+          message:
+            - "Bonjour maitre"
+  - name: "say-hello-en"
+    signals:
+      - order: "Hello"
+    neurons:
+      - say:
+          message:
+            - "Hello sir"
+  - name: "time"
+    signals:
+      - order: "what time is it"
+    neurons:
+      - systemdate:
+          say_template:
+            - "It' {{ hours }} hours and {{ minutes }} minutes, it's {{week-day}}, {{month}}, {{year}}"
+  - name: "wake-up"
+    signals:
+      - event:
+          hour: "6"
+          minute: "30"
+          day_of_week: "1,2,3,4,5"
+    neurons:
+      - say:
+          message:
+            - "bonjour"
+      - systemdate:
+          say_template:
+            - "il est {{ hours }} heures et {{ minutes }} minutes, nous sommes {{day}}"
+      - shell:
+          cmd: "mplayer http://192.99.17.12:6410/"
+          async: True           
+  - name: "wikipedia-search"
+    signals:
+      - order: "cherche sur wikipedia {{ query }}"
+    neurons:
+      - wikipedia_searcher:
+          language: "fr"
+          query: "{{ query }}"
+          file_template: "wikipedia_returned_value.j2"  
+  - name: "say-cc-fr"
+    signals:
+      - order: "ça va"
+    neurons:
+      - say:
+          message:
+            - "Oui tres bien et vous"
+  - name: "default-synapse"
+    signals:
+      - order: "default-synapse-order"
+    neurons:
+      - say:
+          message:
+            - "Je n'ai pas compris votre ordre"
+            - "Je ne connais pas cet ordre"
+            - "Veuillez renouveller votre ordre"
+            - "Veuillez reformuller s'il vous plait"
+            - "Je n'ai pas saisi cet ordre"
+            - "désolé maitre mais je n'ai pas compris"
+            - "escuse-moi je n'écoutait pas"
+            - "je crois avoir entendu un bruissement, ah c'etait vous déssolé"
