@@ -1,0 +1,14 @@
+After=syslog.target network.target
+ConditionFileIsExecutable=/home/pi/scripts/emergency_button.py
+
+[Service]
+StartLimitInterval=5
+StartLimitBurst=10
+ExecStart=/home/pi/scripts/emergency_button.py
+User=pi
+
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
