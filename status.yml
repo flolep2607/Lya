@@ -1,0 +1,15 @@
+---
+  - name: "System-status"
+    signals:
+      - order: "Step into analysis mode, please"
+      - order: "dans quel état es-tu"
+      - order: "analyse système"
+    neurons:
+      - system_status:
+          say_template: 
+            - "Je suis équipé d'un système {{os}}, noyeau {{os_version}}, sur {{system_nb_cores}} coeurs.   Utilisation C P U  {{cpu}}%      Utilisation mémoire  {{memory}}%      Utilisation disque  {{disk}}%"
+          cache: False
+      - shell:
+          cmd: "sh script/poorsmanloganalyser.sh"
+          say_template:
+            - "{{output}}"

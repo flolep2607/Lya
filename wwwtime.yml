@@ -1,0 +1,39 @@
+---
+  - name: "Wwtime-city"
+    signals:
+      - order: "Give me the time in {{city}}"
+    neurons:
+      - wwtime:
+          gmaps_api_key: "AIzaSyAHRwjAs_AbywkLlaiTV3ZGyZhxJmL7Muk "
+          local: "Paris France"
+          city: "{{city}}"
+          file_template: "templates/en_wwtime.j2"
+  - name: "Wwtime-city-boton"
+    signals:
+      - order: "boston time"
+    neurons:
+      - wwtime:
+          gmaps_api_key: "AIzaSyAHRwjAs_AbywkLlaiTV3ZGyZhxJmL7Muk "
+          city: "New york city"
+          local: "Paris France"
+          file_template: "templates/en_wwtime.j2"
+
+  - name: "Wwtime-city"
+    signals:
+      - order: "Donne moi l'heure à {{city}}"
+    neurons:
+      - wwtime:
+          gmaps_api_key: "AIzaSyAHRwjAs_AbywkLlaiTV3ZGyZhxJmL7Muk"
+          local: "Paris France"
+          city: "{{city}}"
+          file_template: "templates/fr_wwtime.j2"
+  - name: "Wwtime-city-boton"
+    signals:
+      - order: "heure boston"
+      - order: "time boston"
+    neurons:
+      - wwtime:
+          gmaps_api_key: "GMAPS_API_KEY"
+          city: "boston"
+          local: "Paris France"
+          file_template: "templates/fr_wwtime.j2"

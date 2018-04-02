@@ -1,0 +1,52 @@
+---
+  - name: "fr-run-simple-sleep-15"
+    signals:
+      - order: "dors pendant 15 minutes"
+    neurons:
+      - say:
+          message: "mode sommeil pour 15 minutes"
+      - sleep:
+          seconds: 900
+  - name: "fr-run-simple-sleep-30"
+    signals:
+      - order: "dors pendant 30 minutes"
+    neurons:
+      - say:
+          message: "mode sommeil pour 30 minutes"
+      - sleep:
+          seconds: 1800
+  - name: "fr-run-simple-sleep-60"
+    signals:
+      - order: "dors pendant une heure"
+    neurons:
+      - say:
+          message: "mode sommeil pour 1 heure"
+      - sleep:
+          seconds: 3600
+
+  - name: "en-run-simple-sleep-15"
+    signals:
+      - order: "dors pendant 15 minutes"
+    neurons:
+      - say:
+          message: "sleep mode for 30 minutes"
+      - sleep:
+          seconds: 900
+  - name: "en-run-simple-sleep-30"
+    signals:
+      - order: "dors pendant 30 minutes"
+    neurons:
+      - say:
+          message: "sleep mode for 30 minutes"
+      - sleep:
+          seconds: 1800
+  - name: "en-run-simple-sleep-60"
+    signals:
+      - order: "dors pendant une heure"
+    neurons:
+      - say:
+          message: "sleep mode for 1 hour"
+      - sleep:
+          seconds: 3600
+
+

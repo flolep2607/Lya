@@ -1,0 +1,17 @@
+---
+  - name: "stop-kalliope"
+    signals:
+      - order: "ferme-toi"
+    neurons:
+      - say:
+          message: "Aurevoir"
+      - kill_switch
+
+  - name: "switch-off-kalliope"
+    signals:
+      - order: "éteins-toi"
+    neurons:
+      - say:
+          message: "Aurevoir Monsieur"
+      - shell:
+          cmd: "sudo halt"

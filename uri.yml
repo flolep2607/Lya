@@ -1,0 +1,12 @@
+
+  - name: "horoscope-fish"
+    signals:
+      - order: "what is my horoscope today"
+    neurons:
+      - say:
+          message: "Fish horoscope of the day"
+      - uri:
+          url: "http://theastrologer-api.herokuapp.com/api/horoscope/fish/today"
+          method: GET
+          say_template:
+              - "{{ content.horoscope }}"

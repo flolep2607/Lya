@@ -1,0 +1,11 @@
+---
+  - name: "Take-pictures"
+    signals:
+      - order: "prends une photo"
+    neurons:
+      - camera:
+          number_of_picture: 3
+          directory: "/home/pi/Desktop/PIctures/"
+          timer: 1
+      - say:
+          message: "C'est fait Monsieur"

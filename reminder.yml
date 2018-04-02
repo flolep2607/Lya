@@ -1,0 +1,11 @@
+---
+  - name: "Reminder"
+    signals:
+      - order: "rappelle-moi {{ query }}"
+    neurons:
+      - shell:
+          cmd: "./script/reminder.py "
+          args:
+              - query
+          say_template: "{{output}}"
+

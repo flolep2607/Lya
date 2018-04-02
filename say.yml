@@ -1,0 +1,19 @@
+---
+  - name: "add-friend"
+    signals:
+      - order: "say hello to {{ name }}"
+    neurons:
+      - say:
+          message:
+            - "Hello {{ name }}"
+
+  - name: "say-something-in-spanish"
+      signals:
+        - order: "Say hello in spanish"
+      neurons:
+        - say:
+            message:
+              - "Buenos dias"
+            tts:
+              pico2wave:
+                language: "es-ES"

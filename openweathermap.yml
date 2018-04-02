@@ -1,0 +1,67 @@
+---
+  - name: "fr-Get-the-weather"
+    signals:
+      - order: "quelle est la météo à {{ location }}"
+      - order: "quelle est la météo de {{ location }}"
+      - order: "quelle est la météo a {{ location }}"
+    neurons:
+      - say:
+          message: "Récupération de la météo en cours Monsieur"
+      - openweathermap:
+          api_key: "2f0e9a5a574dc9b40a2f23f98176180e"
+          lang: "fr"
+          temp_unit: "celsius"
+          country: "FR"
+          args:
+            - location
+          say_template:
+            - "Aujourd'hui a {{ location }} le temps est {{ weather_today }} avec une température de {{ temp_today_temp }} degrés et demain le temps sera {{ weather_tomorrow }} avec une température de {{ temp_tomorrow_temp }} degrés"
+
+  - name: "fr-Get-montelo-weather"
+    signals:
+      - order: "quel temps fait-il"
+    neurons:
+      - say:
+          message: "Récupération de la météo en cours Monsieur"
+      - openweathermap:
+          api_key: "2f0e9a5a574dc9b40a2f23f98176180e"
+          lang: "fr"
+          temp_unit: "celsius"
+          country: "FR"
+          location: "en"
+          say_template:
+            - "Aujourd hui a {{ location }} le temps est {{ weather_today }} avec une température de {{ temp_today_temp }} degrés et demain le temps sera {{ weather_tomorrow }} avec une température de {{ temp_tomorrow_temp }} degrés"
+
+
+  - name: "en-Get-the-weather"
+    signals:
+      - order: "what the weather at {{ location }}"
+    neurons:
+      - say:
+          message: "Retrieving the current weather Sir"
+      - openweathermap:
+          api_key: "81f2624e86f82cd7179fdf6c66513bab"
+          lang: "en"
+          temp_unit: "celsius"
+          country: "FR"
+          args:
+            - location
+          say_template:
+            - "Today at {{ location }} the weather is {{ weather_today }} with a temperature of {{ temp_today_temp }} degrees and tomorrow the weather will be {{ weather_tomorrow }} with a temperature of  {{ temp_tomorrow_temp }} degrees"
+
+
+
+  - name: "en-Get-montelo-weather"
+    signals:
+      - order: "What the weather"
+    neurons:
+      - say:
+          message: "Retrieving the current weather Sir"
+      - openweathermap:
+          api_key: "81f2624e86f82cd7179fdf6c66513bab"
+          lang: "en"
+          temp_unit: "celsius"
+          country: "FR"
+          location: "montelimar"
+          say_template:
+            - "Today at {{ location }} the weather is {{ weather_today }} with a temperature of {{ temp_today_temp }} degrees and tomorrow the weather will be {{ weather_tomorrow }} with a temperature of  {{ temp_tomorrow_temp }} degrees"

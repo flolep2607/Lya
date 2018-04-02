@@ -1,24 +1,25 @@
 ---
 
   - includes:
-        - neurotransmitter.yml
-        - uri.yml
-        - kill_switch.yml
-        - kodi.yml
-        - openweathermap.yml
-        - systemdate.yml
-        - wikipedia.yml
-        - default.yml
-        - all.yml
-        - rss_reader.yml
-        - morning.yml
-        - repeat.yml
-        - reminder.yml
-        - status.yml
-        - sleep.yml
-        - gmaps.yml
-        - todotxt.yml
-        - uber.yml
+        - brains/say.yml
+        - brains/neurotransmitter.yml
+        - brains/uri.yml
+        - brains/kill_switch.yml
+        - brains/kodi.yml
+        - brains/openweathermap.yml
+        - brains/systemdate.yml
+        - brains/wikipedia.yml
+        - brains/default.yml
+        - brains/all.yml
+        - brains/rss_reader.yml
+        - brains/morning.yml
+        - brains/repeat.yml
+        - brains/reminder.yml
+        - brains/status.yml
+        - brains/sleep.yml
+        - brains/gmaps.yml
+        - brains/todotxt.yml
+        - brains/uber.yml
 
   - name: "order-not-found-synapse"
     signals: []
@@ -31,8 +32,6 @@
             - "Would you please reword your order"
             - "Can ou please reformulate your order"
             - "I don't recognize that order"
-            - "I don't understand what you said"
-            - "I didn't get it at all" 
 
   - name: "on-triggered-synapse"
     signals: []
@@ -60,6 +59,6 @@
       - say:
           message:
             - "Yeah bro"
-            - "hello how are you to day  Its a joke I dont give a shit of your life"
+            - "hello, how are you to day?  It's a jokeI don't give a shit of your life"
             - "Yo"
-            - "Hello sir"
+            - "Hello"

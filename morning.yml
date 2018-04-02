@@ -1,0 +1,62 @@
+---
+  - name: "Morning-update"
+    signals:
+      - order: "nouvelle journée"
+    neurons:
+      - say:
+          message: "Bonjour Monsieur"
+      - neurotransmitter:
+          direct_link: "say-local-date"
+      - say:
+          message: "Voulez vous connaitre la météo"
+      - neurotransmitter:
+          from_answer_link: 
+            - synapse: "Get-the-paris-weather"
+              answers:
+                - "oui"
+            - synapse: "Morning-no-response"
+              answers:
+                - "non"
+          default: "Morning-no-response"
+      - say:
+         message: "Voulez vous connaitre vos futurs rendez vous"
+      - neurotransmitter:
+          from_answer_link: 
+            - synapse: "Google-agenda-next"
+              answers:
+                - "oui"
+            - synapse: "Morning-no-response"
+              answers:
+                - "non"
+          default: "Morning-no-response"
+      - say:
+          message: "Voulez vous connaitre les dernières actualités"
+      - neurotransmitter:
+          from_answer_link: 
+            - synapse: "Google-news"
+              answers:
+                - "oui"
+            - synapse: "Morning-no-response"
+              answers:
+                - "non"
+          default: "Morning-no-response"
+      - say:
+          message: "Voulez vous connaitre les dernières actualités football"
+      - neurotransmitter:
+          from_answer_link: 
+            - synapse: "News-sport"
+              answers:
+                - "oui"
+            - synapse: "Morning-no-response"
+              answers:
+                - "non"
+          default: "Morning-no-response"
+      - say:
+          message: "Bonne journée Monsieur"
+
+  - name: "Morning-no-response"
+    signals:
+        - order: "Morning-no-response"
+    neurons:
+      - say:
+          message: "Bien Monsieur"

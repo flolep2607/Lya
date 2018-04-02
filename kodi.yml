@@ -1,0 +1,33 @@
+---
+  - name: "Start-twitch"
+    signals:
+      - order: "démarre twitch"
+    neurons:
+      - uri:
+          url: http://kodi/jsonrpc?request={"id":1,"jsonrpc":"2.0","method":"Addons.executeAddon","params":{"addonid":"plugin.video.twitch","wait":true}}
+      - say:
+          message: "Démarrage de Twitch en cours, monsieur"
+
+  - name: "Start-episode"
+    signals:
+      - order: "démarre épisode {{ query }}"
+    neurons:
+      - shell:
+          cmd: "~/find-episode.sh "
+          args:
+              - query
+
+  - name: "Wake-up-kodi"
+    signals:
+      - order: "réveil Kodi"
+    neurons:
+      - uri:
+          url: http://kodi/jsonrpc?request={"jsonrpc":"2.0","id":"1","method":"Input.home"}
+
+  - name: "Pause-kodi"
+    signals:
+      - order: "pause Kodi"
+    neurons:
+      - uri:
+          url: http://kodi/jsonrpc?request={"jsonrpc":"2.0","method":"Player.PlayPause","params":{"playerid":1},"id":1}
+

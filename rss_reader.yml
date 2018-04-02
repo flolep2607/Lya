@@ -1,0 +1,12 @@
+---
+  - name: "News-sport"
+    signals:
+      - order: "quelle est l'actualité football"
+    neurons:
+      - say:
+          message: "Recherche des actualités football monsieur"
+      - rss_reader:
+          feed_url: "http://www.lequipe.fr/rss/actu_rss_Football.xml"
+          max_items: 10
+          file_template: templates/fr_rss.j2
+

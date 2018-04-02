@@ -1,0 +1,8 @@
+---
+  - name: "Default-synapse"
+    signals:
+      - order: "Default-synapse"
+    neurons:
+      - say:
+          message:
+            - "Excusez moi monsieur mais je n'ai pas compris"

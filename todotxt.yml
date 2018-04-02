@@ -1,0 +1,146 @@
+---
+  - name: "en-Get-all-tasks"
+    signals:
+      - order: "Get all my tasks"
+    neurons:
+      - todotxt:
+          action: "get"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          file_template: "templates/en_todotxt.j2"
+
+  - name: "en-Get-specific-items"
+    signals:
+      - order: "Get my super list"
+    neurons:
+      - todotxt:
+          action: "get"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "project"
+          priority: "A"
+          context: "context"
+          complete: False
+          file_template: "templates/en_todotxt.j2"
+
+
+  - name: "en-Get-grossery-items"
+    signals:
+      - order: "Get all my grosseries"
+    neurons:
+      - todotxt:
+          action: "get"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "grossery"
+          file_template: "templates/en_todotxt.j2"
+
+  - name: "en-add-item-to-shopping-list"
+    signals:
+      - order: "add {{content}} to the shopping list"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          action: "add"
+          project: "grossery"
+          content: "{{content}}"
+          say_template: "Task {{added_task.task}} has been added to the grossery list"
+
+
+  - name: "en-add-item-to-super-list"
+    signals:
+      - order: "add {{content}} to the super list"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "project"
+          priority: "A"
+          context: "context"
+          complete: False
+          content: "{{content}}"
+          say_template: "Task {{added_task.task}} has been added to the super project with priority {{added_task.priority}}"
+
+
+  - name: "en-add-item-to-other-list"
+    signals:
+      - order: "add {{content}} to the other list"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          action: "add"
+          project: "other"
+          content: "{{content}}"
+          say_template: "Task {{added_task.task}} has been added to the other project with priority {{added_task.priority}}"
+
+  - name: "en-clear-shopping-list"
+    signals:
+      - order: "clear the shopping list"
+    neurons:
+      - todotxt:
+          action: "del"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "grossery"
+          say_template: "{{count}} items have been deleted"
+
+  - name: "en-clear-super-list"
+    signals:
+      - order: "clear super list"
+    neurons:
+      - todotxt:
+          action: "del"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "project"
+          priority: "A"
+          context: "context"
+          complete: False
+          say_template: "{{count}} items have been deleted"
+
+  - name: "fr-Get-shopping-list"
+    signals:
+      - order: "list de course"
+      - order: "list de courses"
+      - order: "list des courses"
+      - order: "list des course"
+      - order: "liste de course"
+      - order: "liste de courses"
+      - order: "listes de courses"
+    neurons:
+      - todotxt:
+          action: "get"
+          todotxt_file: "{{todofile}}"
+          project: "courses"
+          file_template: "templates/fr_todotxt.j2"
+
+  - name: "fr-add-item-to-shopping-list"
+    signals:
+      - order: "penser à acheter {{content}}"
+      - order: "pensé à acheté {{content}}"
+      - order: "pensé à acheter {{content}}"
+      - order: "penser à acheté {{content}}"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "{{todofile}}"
+          project: "courses"
+          args:
+             - content
+          say_template: "J'ai ajouté {{added_task.task}} a la liste des courses"
+
+  - name: "fr-delete-shopping-list"
+    signals:
+      - order: "supprimer la liste"
+      - order: "supprime la liste"
+    neurons:
+      - todotxt:
+          action: "del"
+          todotxt_file: "{{todofile}}"
+          project: "courses"
+          say_template: "J'ai vidé la liste de course"
+
+  - name: "fr-send-shopping-list"
+    signals:
+      - order: "envoyer la liste"
+      - order: "envoie-moi la liste"
+    neurons:
+      - script:
+          path: "script/mail_grocery.sh"

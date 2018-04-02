@@ -1,0 +1,24 @@
+---
+  - name: "fr-wikipedia-search"
+    signals:
+      - order: "cherche sur Wikipédia {{ query }}"
+      - order: "recherche sur Wikipédia {{ query }}"
+    neurons:
+      - wikipedia_searcher:
+          language: "fr"
+          sentences: 5
+          query: "{{ query }}"
+          file_template: "templates/wikipedia_returned_value.j2"
+          tts:             
+            pico2wave:
+              language: "fr-FR"
+              cache: False
+  - name: "wikipedia-search"
+    signals:
+      - order: "look on wikipedia {{ query }}"
+      - order: "search on wikipedia {{ query }}"
+    neurons:
+      - wikipedia_searcher:
+          language: "en"
+          query: "{{ query }}"
+          file_template: "templates/wikipedia_returned_value.j2"
