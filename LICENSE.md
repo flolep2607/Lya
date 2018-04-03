@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) <p><font color="fuchsia">2018</font></p> <code>Lya's Corp</code>
+Copyright (c) <code>2018</code> <code>Lya's Corp</code>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
