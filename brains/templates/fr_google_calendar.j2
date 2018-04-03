@@ -1,0 +1,6 @@
+{{ message }}
+{% for event in events %} 
+    le {{ event['time']['weekday'] }}, {{ event['time']['day'] }}, {{ event['time']['month'] }}, à {{ event['time']['hour'] }} heure, {{ event['time']['minute'] }} :          {{ event['summary'] }}
+{% endfor %}
+
+
