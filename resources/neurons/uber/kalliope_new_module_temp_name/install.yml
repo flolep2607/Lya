@@ -1,0 +1,14 @@
+- name: Kalliope Google Maps neuron
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  become: true
+
+  tasks:
+    - name: "Install uber lib dependencies"
+      pip:
+        name: uber_rides
+    - name: "Install gmaps lib dependencies"
+      pip:
+        name: googlemaps
+        version: 2.4.5

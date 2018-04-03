@@ -1,0 +1,8 @@
+{% if returncode != 200 %}
+    Erreur lors de la récupération de la page web
+{% else %}
+    {% for g in news: %}
+        Titre: {{ g['title'] }}
+        Info: {{ g['content'] }}
+    {% endfor %}
+{% endif %}

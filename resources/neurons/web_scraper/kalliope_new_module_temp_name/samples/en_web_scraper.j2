@@ -1,0 +1,9 @@
+{% if returncode != 200 %}
+    Error while retrieving web page.
+{% else %}
+    {% for g in news: %}
+        Title: {{ g['title'] }}
+        Summary: {{ g['content'] }}
+    {% endfor %}
+{% endif %}
+

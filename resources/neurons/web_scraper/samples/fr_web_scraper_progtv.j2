@@ -1,0 +1,9 @@
+{% if returncode != 200 %}
+    Erreur lors de la récupération des programmes
+{% else %}
+    Ce soir à la télévision:
+    {% for g in news: %}
+        {{ g['title'] }} : {{ g['content'] }}
+    {% endfor %}
+{% endif %}
+

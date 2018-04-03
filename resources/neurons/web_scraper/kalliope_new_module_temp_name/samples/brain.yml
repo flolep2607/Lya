@@ -1,0 +1,37 @@
+---
+  - name: "Google-news-fr"
+    signals:
+      - order: "quelles sont les actualités"
+    neurons:
+      - web_scraper:
+          url: "https://news.google.com"
+          main_selector: "div.top-stories-section div.section-content div.story"
+          title_selector: "h2.esc-lead-article-title > a > span"
+          description_selector: "div.esc-lead-snippet-wrapper"
+          file_template: "templates/fr_web_scraper.j2"
+
+  - name: "Google-news-en"
+    signals:
+      - order: "what are the latest news"
+    neurons:
+      - say:
+          message: "Searching latest news Sir"
+      - web_scraper:
+          url: "https://news.google.com"
+          main_selector: "div.top-stories-section div.section-content div.story"
+          title_selector: "h2.esc-lead-article-title > a > span"
+          description_selector: "div.esc-lead-snippet-wrapper"
+          file_template: "templates/en_web_scraper.j2"
+
+  - name: "Programme-tv"
+    signals:
+      - order: "qu'est-ce qu'il y a à la télé ce soir"
+    neurons:
+      - say:
+          message: "Probablement rien, mais je regarde"
+      - web_scraper:
+          url: "http://tvmag.lefigaro.fr/programme-tv/ce_soir_la_tv.html"
+          main_selector: "div.tvm-grid-channel__prog"
+          title_selector: "div.tvm-grid-channel__logo i"
+          description_selector: "div.tvm-grid-channel__part1 h3"
+          file_template: "templates/fr_web_scraper_progtv.j2"
