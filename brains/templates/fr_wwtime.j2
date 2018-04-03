@@ -1,0 +1,7 @@
+{% if status == "OK" %}
+    Monsieur, à {{city.arg}}, il est {{city.time.hour}} heure et 
+{{city.time.minute}} minutes alors qu'ici, il est {{local.time.hour}} heure et 
+{{local.time.minute}} minutes
+    Le timezone est {{city.timezonename}} {% else %}
+    Desolé Monsieur mais je ne sais pas.
+{% endif %}
