@@ -1,0 +1,77 @@
+---
+  - name: "Gmaps-distance"
+    signals:
+      - order: "distance entre {{origin}} et {{destination}}"
+    neurons:
+      - say:
+          message: "Calcul en cours"
+      - gmaps:
+          gmaps_api_key: "**********************"
+          mode: "driving"
+          language: "french"
+          units: "metric"
+          traffic_model: "pessimistic"   
+          origin: "{{origin}}"
+          destination: "{{destination}}"
+          file_template: "templates/fr_gmaps.j2"
+
+  - name: "Gmaps-distance-from-home"
+    signals: 
+      - order: "distance pour aller à {{destination}}"
+    neurons:
+      - say:
+          message: "Calcul en cours"
+      - gmaps:
+          gmaps_api_key: "**********************"
+          mode: "driving"
+          language: "french"
+          units: "metric"
+          origin: "home address"
+          mode: "driving"
+          destination: "{{destination}}"
+          file_template: "templates/fr_gmaps.j2"
+
+  - name: "Gmaps-place-address"
+    signals: 
+      - order: "adresse de {{search}}"
+    neurons:
+      - say:
+          message: "Calcul en cours"
+      - gmaps:
+          gmaps_api_key: "**********************"
+          language: "french"
+          units: "metric"
+          search: "{{search}}"
+          file_template: "templates/fr_gmaps.j2"
+
+  - name: "Gmaps-distance-from-home-by-tube"
+    signals:
+      - order: "métro {{destination}}"
+    neurons:
+      - say:
+          message: "Calcul en cours"
+      - gmaps:
+          gmaps_api_key: "*********"
+          mode: "transit"
+          language: "fr"
+          units: "metric"
+          origin: "******"
+          direction: True
+          destination: "{{destination}}"
+          file_template: "templates/fr_gmaps.j2"
+
+  - name: "Gmaps-directions-by-care" 
+    signals:  
+      - order: "directions {{destination}}" 
+    neurons: 
+      - say: 
+          message: "Calcul en cours" 
+      - gmaps: 
+          gmaps_api_key: "*********"
+          mode: "driving" 
+          language: "fr" 
+          units: "metric" 
+          origin: "*******" 
+          direction: True 
+          destination: "{{destination}}"
+          file_template: "templates/fr_gmaps.j2" 

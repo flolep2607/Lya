@@ -1,0 +1,11 @@
+{% if count > 0 %}
+    Votre liste contient
+
+    {% for task in task_list %}
+
+        {{ task.text }}
+
+    {% endfor %}
+{% else %}
+    Vous n'avez rien dans votre liste 
+{% endif %}

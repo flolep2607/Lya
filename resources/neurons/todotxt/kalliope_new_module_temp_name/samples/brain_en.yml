@@ -1,0 +1,97 @@
+---
+  - name: "Get-all-tasks"
+    signals:
+      - order: "Get all my tasks"
+    neurons:
+      - todotxt:
+          action: "get"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          file_template: "templates/en_todotxt.j2"
+
+  - name: "Get-specific-items"
+    signals:
+      - order: "Get my super list"
+    neurons:
+      - todotxt:
+          action: "get"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "project"
+          priority: "A"
+          context: "context"
+          complete: False
+          file_template: "templates/en_todotxt.j2"
+
+
+  - name: "Get-grossery-items"
+    signals:
+      - order: "Get all my grosseries"
+    neurons:
+      - todotxt:
+          action: "get"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "grossery"
+          file_template: "templates/en_todotxt.j2"
+
+  - name: "add-item-to-shopping-list"
+    signals:
+      - order: "add {{content}} to the shopping list"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          action: "add"
+          project: "grossery"
+          content: "{{content}}"
+          say_template: "Task {{added_task.task}} has been added to the grossery list"
+
+
+  - name: "add-item-to-super-list"
+    signals:
+      - order: "add {{content}} to the super list"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "project"
+          priority: "A"
+          context: "context"
+          complete: False
+          content: "{{content}}"
+          say_template: "Task {{added_task.task}} has been added to the super project with priority {{added_task.priority}}"
+
+
+  - name: "add-item-to-other-list"
+    signals:
+      - order: "add {{content}} to the other list"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          action: "add"
+          project: "other"
+          content: "{{content}}"
+          say_template: "Task {{added_task.task}} has been added to the other project with priority {{added_task.priority}}"
+
+  - name: "clear-shopping-list"
+    signals:
+      - order: "clear the shopping list"
+    neurons:
+      - todotxt:
+          action: "del"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "grossery"
+          say_template: "{{count}} items have been deleted"
+
+  - name: "clear-super-list"
+    signals:
+      - order: "clear super list"
+    neurons:
+      - todotxt:
+          action: "del"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          project: "project"
+          priority: "A"
+          context: "context"
+          complete: False
+          say_template: "{{count}} items have been deleted"
+

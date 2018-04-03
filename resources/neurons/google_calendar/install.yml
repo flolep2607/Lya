@@ -1,0 +1,11 @@
+- name: Kalliope google_calendar neuron install
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  become: true
+
+  tasks:
+    - name: "Install pip dependencies"
+      pip:
+        name: google-api-python-client
+        version: 1.5.5

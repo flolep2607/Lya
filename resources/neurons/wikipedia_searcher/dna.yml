@@ -1,0 +1,14 @@
+---
+  # must match the entry  point class name
+  name: "wikipedia_searcher"
+  type: "neuron"
+  author: "The dream team of Kalliope project"
+
+  kalliope_supported_version: 
+    - 0.4
+    - 0.5
+
+  tags:
+    - "wikipedia"
+    - "search engine"
+    - "wiki"

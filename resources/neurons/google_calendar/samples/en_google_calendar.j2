@@ -1,0 +1,10 @@
+{% if count > 0 %}
+    Your next meetings are
+    {% for event in events %}
+        on {{ event['time']['weekday'] }}, {{ event['time']['day'] }}, {{ event['time']['month'] }}, à {{ event['time']['hour'] }} hour, {{ event['time']['minute'] }} :
+        {{ event['summary'] }}
+    {% endfor %}
+{% else %}
+    You don't have any meeting coming up
+{% endif %}
+

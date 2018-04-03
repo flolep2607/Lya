@@ -1,0 +1,24 @@
+---
+  - name: "Google-agenda-next"
+    signals:
+      - order: "what are my next meetings"
+    neurons:
+      - google_calendar:
+          credentials_file: "/path/to/credentials.json"
+          client_secret_file: "/path/to/client_secret.json"
+          application_name: "App name"
+          max_results: 3
+          locale: fr_FR.UTF-8 # needs to be an installed locale
+          file_template: "templates/en_google_calendar.j2"
+
+- name: "Google-agenda-prochains"
+    signals:
+      - order: "quels sont mes prochains rendez vous"
+    neurons:
+      - google_calendar:
+          credentials_file: "/path/to/credentials.json"
+          client_secret_file: "/path/to/client_secret.json"
+          application_name: "App name"
+          max_results: 3
+          locale: fr_FR.UTF-8 # needs to be an installed locale
+          file_template: "templates/fr_google_calendar.j2"

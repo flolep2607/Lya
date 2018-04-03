@@ -1,0 +1,15 @@
+{% if status == "KO" %}
+    Désolé monsieur, mais une erreur est survenu lors du calcul.
+{% elif status == "OK" %}
+    {% if search %}
+        {% if origin %}
+	    La distance entre {{ origin }} et {{ search }} est de {{ distance }}. 
+            Il faut environ {{ time_traffic }} pour y aller en voiture avec le traffic actuel, {{ time }} en moyenne."
+        {% else %}
+            L'addresse de {{ search }} est {{destination}}
+        {% endif %}
+    {% elif destination %}
+        La distance entre {{ origin }} et {{ destination }} est de {{ distance }}. 
+        Il faut environ {{ time_traffic }} pour y aller en voiture avec le traffic actuel, {{ time }} en moyenne."
+    {% endif %}
+{% endif %}

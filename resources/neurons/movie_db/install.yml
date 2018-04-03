@@ -1,0 +1,12 @@
+---
+- name: Playbook
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  become: true
+
+  tasks:
+    - name: "Install pip movie db dependencies"
+      pip:
+        name: tmdbsimple
+        version: 1.6.1

@@ -1,0 +1,13 @@
+---
+  name: "hue"
+  type: "neuron"
+  author: "Kalliope project team"
+
+  kalliope_supported_version:
+    - 0.4
+    - 0.5
+
+  tags:
+    - "Philips"
+    - "hue"
+    - "light"
