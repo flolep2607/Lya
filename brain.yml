@@ -19,6 +19,7 @@
         - gmaps.yml
         - todotxt.yml
         - uber.yml
+        - fruit.yml
 
   - name: "order-not-found-synapse"
     signals: []
