@@ -20,6 +20,8 @@
         - todotxt.yml
         - uber.yml
         - fruits.yml
+        - country.yml
+        - word.yml
 
   - name: "order-not-found-synapse"
     signals: []
