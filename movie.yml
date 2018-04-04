@@ -1,0 +1,12 @@
+---
+ - name: "search-movie"
+    signals:
+      - order: "search for Movie {{ movie}}"
+    neurons:
+      - movie_db:
+          api_key: "YOUR_API_KEY"
+          action: "MOVIE"
+          language: "fr"
+          extra_movie: "credits"
+          file_template: templates/movie_db_movie.j2
+          movie: "{{ movie }}"
