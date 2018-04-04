@@ -11,3 +11,35 @@
           extra_movie: "credits"
           file_template: movie_db_movie.j2
           movie: "{{ movie }}"
+          
+ - name: "movie-people"
+    signals:
+      - order: "get Info about actor {{ people }}"
+      - order: "get Info about actress {{ people }}"
+      - order: "get Info about director {{ people }}"
+    neurons:
+      - movie_db:
+          api_key: "37bf0b20b7f487aaa88703c1c2e22264"
+          action: "PEOPLE"
+          say_template:
+          - "{{ name }}, born {{ birthday }} at {{place_of_birth }}, {{ biography }}, known for [:5]|map(attribute='title')|join(', ')  "
+          people: "{{ people }}"
+          
+  - name: "popular-movie"
+    signals:
+      - order: "what are popular movies"
+    neurons:
+      - movie_db:
+          api_key: "37bf0b20b7f487aaa88703c1c2e22264"
+          action: "POPULAR"
+          language: "en"
+          file_template: movie_db_popular.j2
+  - name: "top-rated-movie"
+    signals:
+      - order: "what are the top rated movies"
+    neurons:
+      - movie_db:
+          api_key: "YOUR_API_KEY"
+          action: "TOP_RATED"
+          language: "en"
+          file_template: movie_db_top_rated.j2     
