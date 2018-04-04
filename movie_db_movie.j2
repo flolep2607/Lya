@@ -1,0 +1,14 @@
+{% if movie is defined %}
+  {{ movie["title"] }}, is a film released on {{ movie["release_date"][:4] }}.
+  {{ movie["title"] }} is a movie of {{ movie["genres"]|map(attribute='name')|join(', ') }}
+
+  Synopsis :
+  {{ movie["overview"] }}
+  
+  {% if movie['credits'] is defined %}
+    {% set actors = movie['credits']['cast'] %}
+    Main actors are: {{ actors[:5]|map(attribute='name')|join(', ') }}
+  {% endif %}
+{% else %}
+    No movie found
+{% endif %}
