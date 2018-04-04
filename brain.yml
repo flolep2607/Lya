@@ -21,7 +21,7 @@
         - uber.yml
         - fruits.yml
         - country.yml
-        - word.yml
+        - words.yml
 
   - name: "order-not-found-synapse"
     signals: []
