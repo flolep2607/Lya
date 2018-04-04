@@ -44,6 +44,20 @@
           content: "{{content}}"
           say_template: "Task {{added_task.task}} has been added to the grossery list"
 
+- name: "en-add-item-to-shopping-list"
+    signals:
+      - order: "del {{content}} to the shopping list"
+      - order: "delete {{content}} to the shopping list"
+      - order: "del {{content}} on the shopping list"
+      - order: "delete {{content}} on the shopping list"
+    neurons:
+      - todotxt:
+          action: "add"
+          todotxt_file: "resources/neurons/todotxt/samples/todo.txt"
+          action: "del"
+          project: "grossery"
+          content: "{{content}}"
+          say_template: "Task {{added_task.task}} has been added to the grossery list"
 
   - name: "en-add-item-to-super-list"
     signals:
