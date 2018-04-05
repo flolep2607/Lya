@@ -1,4 +1,4 @@
-  - name: "animals"
+  - name: "en-animals"
     signals:
       - order: "animals"
     neurons:
