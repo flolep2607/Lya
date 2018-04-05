@@ -39,7 +39,7 @@
       - order: "what are the top rated movies"
     neurons:
       - movie_db:
-          api_key: "YOUR_API_KEY"
+          api_key: "37bf0b20b7f487aaa88703c1c2e22264"
           action: "TOP_RATED"
           language: "en"
           file_template: movie_db_top_rated.j2
@@ -48,7 +48,7 @@
       - order: "what are upcoming movies"
     neurons:
       - movie_db:
-          api_key: "YOUR_API_KEY"
+          api_key: "37bf0b20b7f487aaa88703c1c2e22264"
           action: "UPCOMING"
           language: "en"
           region: "FR"
