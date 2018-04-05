@@ -42,4 +42,14 @@
           api_key: "YOUR_API_KEY"
           action: "TOP_RATED"
           language: "en"
-          file_template: movie_db_top_rated.j2     
+          file_template: movie_db_top_rated.j2
+  - name: "upcoming-movie"
+    signals:
+      - order: "what are upcoming movies"
+    neurons:
+      - movie_db:
+          api_key: "YOUR_API_KEY"
+          action: "UPCOMING"
+          language: "en"
+          region: "FR"
+          file_template: movie_db_upcoming.j2         
